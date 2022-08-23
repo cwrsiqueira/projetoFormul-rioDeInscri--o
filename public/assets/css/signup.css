@@ -1,0 +1,10 @@
+.assinatura {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 10px 0px;
+    width: 100%;
+    background-color: #eee;
+    text-align: center;
+    margin-top: 10px;
+}
