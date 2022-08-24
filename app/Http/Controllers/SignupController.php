@@ -97,6 +97,8 @@ class SignupController extends Controller
         $subscription->autpaisarquivo = $validated['autpaisarquivo'] ?? '';
         $subscription->comppagto = $validated['comppagto'];
         $subscription->hash = Hash::make($validated['uname'] . $validated['nucleo'] . $validated['phone1'] . time() . rand(0, 9999) . time());
+        $subscription->status = 'novo';
+        $subscription->obs = '';
         $subscription->save();
 
         return view('subscription_confirmation', ['subscription' => $subscription]);

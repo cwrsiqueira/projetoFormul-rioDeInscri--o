@@ -27,6 +27,8 @@ class CreateSubscriptionTable extends Migration
             $table->string('autpaisarquivo')->nullable();
             $table->string('comppagto');
             $table->string('hash');
+            $table->string('status');
+            $table->text('obs')->nullable();
             $table->timestamps();
         });
     }
