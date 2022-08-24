@@ -178,10 +178,9 @@
                             formato PDF</li>
                         <li>Enviar os arquivos salvos, junto com o formulário, através do campo apropriado</li>
                         <li>Clicar no botão Enviar Inscrição</li>
-                        <li>Você receberá um e-mail com a confirmação da sua inscrição (caso não receba na caixa de
-                            entrada, verificar nas caixas de spam e lixo eletrônico)</li>
-                        <li>Qualquer dúvida entre em contato conosco através do e-mail emailtal@email.com, ou nossos
-                            telefones/whatsapp 96 123456789 e 96 123456789</li>
+                        <li>Você receberá uma mensagem com a confirmação da sua inscrição</li>
+                        <li>Qualquer dúvida entre em contato conosco nos nossos telefones/whatsapp 96 123456789 e 96
+                            123456789</li>
                     </ul>
 
                     <button type="submit" class="btn btn-primary">Enviar Inscrição</button>

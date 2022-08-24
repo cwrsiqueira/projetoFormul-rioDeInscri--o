@@ -13,19 +13,20 @@ class CreateSubscriptionTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscription', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->string('uname');
             $table->integer('age');
-            $table->string('sexo');
+            $table->string('sexo')->nullable();
             $table->string('nucleo');
             $table->string('phone1');
-            $table->string('phone2');
-            $table->text('infosaude');
-            $table->text('infonecessidades');
+            $table->string('phone2')->nullable();
+            $table->text('infosaude')->nullable();
+            $table->text('infonecessidades')->nullable();
             $table->string('autimgarquivo');
-            $table->string('autpaisarquivo');
+            $table->string('autpaisarquivo')->nullable();
             $table->string('comppagto');
+            $table->string('hash');
             $table->timestamps();
         });
     }
@@ -37,6 +38,6 @@ class CreateSubscriptionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscription');
+        Schema::dropIfExists('subscriptions');
     }
 }

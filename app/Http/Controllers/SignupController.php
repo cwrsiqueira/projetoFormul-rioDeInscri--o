@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subscription;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class SignupController extends Controller
 {
@@ -58,8 +60,45 @@ class SignupController extends Controller
             'comppagto' => 'Enviar o Comprovante de pagamento',
         ]);
 
+        if ($request->hasFile('autimgarquivo')) {
+            if ($request->file('autimgarquivo')->isValid()) {
+                $file = $request->file('autimgarquivo')->store('public');
+                $url = asset(Storage::url($file));
+                $validated['autimgarquivo'] = $url;
+            }
+        }
 
+        if ($request->hasFile('autpaisarquivo')) {
+            if ($request->file('autpaisarquivo')->isValid()) {
+                $file = $request->file('autpaisarquivo')->store('public');
+                $url = asset(Storage::url($file));
+                $validated['autpaisarquivo'] = $url;
+            }
+        }
 
-        dd('PASSOU', $validated);
+        if ($request->hasFile('comppagto')) {
+            if ($request->file('comppagto')->isValid()) {
+                $file = $request->file('comppagto')->store('public');
+                $url = asset(Storage::url($file));
+                $validated['comppagto'] = $url;
+            }
+        }
+
+        $subscription = new Subscription();
+        $subscription->uname = $validated['uname'];
+        $subscription->age = $validated['age'];
+        $subscription->sexo = $validated['sexo'];
+        $subscription->nucleo = $validated['nucleo'];
+        $subscription->phone1 = $validated['phone1'];
+        $subscription->phone2 = $validated['phone2'];
+        $subscription->infosaude = $validated['infosaude'];
+        $subscription->infonecessidades = $validated['infonecessidades'];
+        $subscription->autimgarquivo = $validated['autimgarquivo'];
+        $subscription->autpaisarquivo = $validated['autpaisarquivo'] ?? '';
+        $subscription->comppagto = $validated['comppagto'];
+        $subscription->hash = Hash::make($validated['uname'] . $validated['nucleo'] . $validated['phone1'] . time() . rand(0, 9999) . time());
+        $subscription->save();
+
+        return view('subscription_confirmation', ['subscription' => $subscription]);
     }
 }
