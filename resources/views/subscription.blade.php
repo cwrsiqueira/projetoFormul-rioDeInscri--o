@@ -82,20 +82,27 @@
                         CÓD. INSC.: <input disabled type="text" class="form-control" value="{{ $sub->hash }}">
                     </div>
                 </div>
+                <div class="mt-3"><strong>Documentos enviados: (clique para visualizar)</strong></div>
                 <div class="row mt-3">
-                    <div class="col-sm">
-                        <a href="{{ $sub->autimgarquivo }}" target="_blank">Autorização de Imagem</a>
-                    </div>
+                    @if ($sub->autimgarquivo)
+                        <div class="col-sm">
+                            <a href="{{ $sub->autimgarquivo }}" target="_blank">Autorização de Imagem</a>
+                        </div>
+                    @endif
                 </div>
                 <div class="row">
-                    <div class="col-sm">
-                        <a href="{{ $sub->autpaisarquivo }}" target="_blank">Autorização do Responsável</a>
-                    </div>
+                    @if ($sub->autpaisarquivo)
+                        <div class="col-sm">
+                            <a href="{{ $sub->autpaisarquivo }}" target="_blank">Autorização do Responsável</a>
+                        </div>
+                    @endif
                 </div>
                 <div class="row">
-                    <div class="col-sm">
-                        <a href="{{ $sub->comppagto }}" target="_blank">Comprovante de Pagamento</a>
-                    </div>
+                    @if ($sub->comppagto)
+                        <div class="col-sm">
+                            <a href="{{ $sub->comppagto }}" target="_blank">Comprovante de Pagamento</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
