@@ -84,17 +84,17 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm">
-                        <a href="{{ $sub->autimgarquivo }}">Autorização de Imagem</a>
+                        <a href="{{ $sub->autimgarquivo }}" target="_blank">Autorização de Imagem</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm">
-                        <a href="{{ $sub->autpaisarquivo }}">Autorização do Responsável</a>
+                        <a href="{{ $sub->autpaisarquivo }}" target="_blank">Autorização do Responsável</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm">
-                        <a href="{{ $sub->comppagto }}">Comprovante de Pagamento</a>
+                        <a href="{{ $sub->comppagto }}" target="_blank">Comprovante de Pagamento</a>
                     </div>
                 </div>
             </div>

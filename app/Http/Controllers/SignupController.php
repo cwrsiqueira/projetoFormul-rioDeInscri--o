@@ -32,7 +32,7 @@ class SignupController extends Controller
     public function registrar(Request $request)
     {
         $validated = $request->validate([
-            "uname" => "required|min:3|string",
+            "uname" => "required|min:3|string|unique:subscriptions",
             "age" => "required|numeric",
             "sexo" => "",
             "nucleo" => "required|string|min:3",
@@ -50,6 +50,7 @@ class SignupController extends Controller
             'numeric' => 'O campo :attribute precisa ser um número.',
             'file' => 'O campo :attribute precisa ser um arquivo.',
             'mimes' => 'O campo :attribute precisa ser um arquivo do tipo: :values.',
+            'unique' => 'Já existe inscrição realizada para o nome "' . $request->input('uname') . '"',
         ], [
             'uname' => 'Nome Completo',
             'age' => 'Idade',
